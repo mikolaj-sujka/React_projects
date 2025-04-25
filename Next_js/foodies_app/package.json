@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "better-sqlite3": "^11.9.1",
+    "fs": "^0.0.1-security",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
