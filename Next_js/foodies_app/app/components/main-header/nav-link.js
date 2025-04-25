@@ -8,7 +8,7 @@ export default function NavLink({ href, children }) {
   const path = usePathname();
 
   return (
-    <li>
+    <div>
       <Link
         href={href}
         className={
@@ -19,6 +19,6 @@ export default function NavLink({ href, children }) {
       >
         {children}
       </Link>
-    </li>
+    </div>
   );
 }
