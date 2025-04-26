@@ -3,6 +3,22 @@ import classes from "./page.module.css";
 import { getMealBySlug } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const meal = getMealBySlug(params.mealSlug);
+
+  if (!meal) {
+    return {
+      title: "Meal not found",
+      description: "The requested meal could not be found.",
+    };
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default function MealDetailPage({ params }) {
   const meal = getMealBySlug(params.mealSlug);
 
@@ -29,7 +45,7 @@ export default function MealDetailPage({ params }) {
       <main>
         <p
           className={classes.instructions}
-          dangerouslySetInnerHTML={{ __html: meal.instructions}}
+          dangerouslySetInnerHTML={{ __html: meal.instructions }}
         ></p>
       </main>
     </>
